@@ -1,0 +1,23 @@
+<ion-content padding>
+  <img class="logo" src="assets/img/logo/logo-instagram.png" />
+
+  <div padding>
+    <ion-item>
+      <ion-input placeholder="Usuário" type="text" [(ngModel)]="usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Senha" type="password" [(ngModel)]="usuario"></ion-input>
+    </ion-item>
+    <button ion-button block outline (click)="login()" color="light" class="login-button">
+      Login
+    </button>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="footer">
+    <div (click)="goToRegister()">
+      <span>Não tem uma conta? <strong>Cadastre-se agora</strong>.</span>
+    </div>
+  </ion-toolbar>
+</ion-footer>

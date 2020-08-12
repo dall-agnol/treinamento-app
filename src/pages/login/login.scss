@@ -1,0 +1,43 @@
+page-login {
+    $transparent-white: rgba(255, 255, 255, .6);
+}
+
+.toolbar-content, span {
+    color: #fff;
+}
+
+ion-footer {
+    height: 47px;
+}
+
+.footer {
+    text-align: center;
+    background: rgba(255, 255, 255, .06);
+    min-height: 47px;
+}
+
+.footer-md::before {
+    border-top: 1px solid $transparent-white;
+    background-image: none;
+}
+
+ion-content {
+    background: lienar-gradient(316deg, #2b1de8, #dd00f3, #dd00f3);
+    background-size: 1800% 1800%;
+    animation: rainbow 30s linear infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%
+    }
+}
+
+//Content
+
