@@ -1,12 +1,9 @@
+import { LoginProvider } from './../../providers/login/login';
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SessionProvider } from '../../providers/session/session';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +12,38 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user: string;
+  password: string;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public loginService: LoginProvider,
+    public sessionHelper: SessionProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  ionViewWillEnter() {
+    this.sessionHelper.getSession().then(user => {
+      if (user) {
+        return this.login(true);
+      }
+    })
+  }
+
+
+  login(logged?) {
+    if (logged) {
+      return this.navCtrl.setRoot(HomePage)
+    }
+    let params = {
+      usuario: this.user,
+      senha: this.password
+    }
+    return this.loginService.login(params).then(retorno => {
+      return this.sessionHelper.setSession(retorno).then(() => {
+        this.navCtrl.setRoot(HomePage)
+      })
+    })
   }
 
 }
