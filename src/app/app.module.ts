@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 
+import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -17,6 +18,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ProfilePage } from '../pages/profile/profile';
 import { TakePicPage } from '../pages/take-pic/take-pic';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
+import { PhotoProvider } from '../providers/photo/photo';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
-    SessionProvider
+    SessionProvider,
+    Camera,
+    PhotoProvider
   ]
 })
 export class AppModule {}

@@ -1,3 +1,4 @@
+import { TakePicPage } from './../take-pic/take-pic';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, ModalController, Content } from 'ionic-angular';
 
@@ -21,7 +22,7 @@ export class HomePage {
 
 
   openCamera() {
-
+    this.navCtrl.setRoot(TakePicPage)
   }
 
 

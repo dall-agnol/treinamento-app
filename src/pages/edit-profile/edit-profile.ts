@@ -1,12 +1,7 @@
+import { SessionProvider } from './../../providers/session/session';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the EditProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +10,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EditProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  session: any;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private sessionHelper: SessionProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EditProfilePage');
+  ionViewWillEnter() {
+    this.sessionHelper.getSession().then(session => {
+      this.session = session;
+    })
   }
 
+  
 }
