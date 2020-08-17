@@ -5,13 +5,18 @@ page-login {
     color: #fff;
 }
 
+.toolbar-background-ios {
+  background-image: none;
+  border-bottom: 0;
+}
+
 ion-footer {
     height: 47px;
 }
 
 .footer {
     text-align: center;
-    background: rgba(255, 255, 255, .06);
+    background: rgba(255, 255, 255, 0.06);
     min-height: 47px;
 }
 
@@ -58,8 +63,15 @@ ion-content {
     background-color: rgba(255, 255, 255, .2) !important;
     font-size: 0.9em;
   }
+
+  
    ::-webkit-input-placeholder {
     color: white !important;
+  }
+
+  .container-register {
+    display: flex;
+    flex-direction: column;
   }
   .item-inner {
     border-bottom: 0 !important;

@@ -3,6 +3,8 @@ import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SessionProvider } from '../../providers/session/session';
+import { RegisterPage } from '../register/register';
+import { TabsPage } from '../tabs/tabs';
 
 
 @IonicPage()
@@ -33,7 +35,7 @@ export class LoginPage {
 
   login(logged?) {
     if (logged) {
-      return this.navCtrl.setRoot(HomePage)
+      return this.navCtrl.setRoot(TabsPage)
     }
     let params = {
       usuario: this.user,
@@ -41,9 +43,13 @@ export class LoginPage {
     }
     return this.loginService.login(params).then(retorno => {
       return this.sessionHelper.setSession(retorno).then(() => {
-        this.navCtrl.setRoot(HomePage)
+        this.navCtrl.setRoot(TabsPage)
       })
     })
+  }
+
+  goToRegister() {
+    this.navCtrl.push(RegisterPage)
   }
 
 }

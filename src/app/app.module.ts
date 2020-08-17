@@ -12,12 +12,22 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { LoginProvider } from '../providers/login/login';
 import { SessionProvider } from '../providers/session/session';
+import { RegisterPage } from '../pages/register/register';
+import { TabsPage } from '../pages/tabs/tabs';
+import { ProfilePage } from '../pages/profile/profile';
+import { TakePicPage } from '../pages/take-pic/take-pic';
+import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    RegisterPage,
+    TabsPage,
+    ProfilePage,
+    TakePicPage,
+    EditProfilePage
   ],
   imports: [
     HttpClientModule,
@@ -29,7 +39,12 @@ import { SessionProvider } from '../providers/session/session';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    RegisterPage,
+    TabsPage,
+    ProfilePage,
+    TakePicPage,
+    EditProfilePage
   ],
   providers: [
     StatusBar,

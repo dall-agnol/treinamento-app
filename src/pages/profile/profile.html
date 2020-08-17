@@ -1,0 +1,120 @@
+<ion-header>
+
+  <ion-navbar color="white">
+    <ion-title>lorenzogarcia</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goToOptions()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-row padding>
+    <ion-col col-3>
+      <img src="http://ionicframework.com/dist/preview-app/www/assets/img/sarah-avatar.png.jpeg" class="avatar">
+    </ion-col>
+    <ion-col col-3 text-center>
+      <h6>21</h6>
+      <p no-padding no-margin>postagens</p>
+    </ion-col>
+    <ion-col col-3 text-center>
+      <h6>21</h6>
+      <p no-padding no-margin>seguidores</p>
+    </ion-col>
+    <ion-col col-3 text-center>
+      <h6>21</h6>
+      <p no-padding no-margin>seguindo</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row no-padding no-margin>
+    <ion-col no-padding no-margin col-4></ion-col>
+    <ion-col no-padding no-margin text-center col-8>
+      <button class="edit-button" (click)="goEditProfile()">
+        Editar seu perfil
+      </button>
+    </ion-col>
+    <ion-col col-3></ion-col>
+  </ion-row>
+
+  <div padding>
+    <p no-margin no-padding><b>Lorenzo DallAgnol</b></p>
+    <p no-margin no-padding class="info">EU GOSTO DE COPIAR E COLAR O INSTAGRAM</p>
+  </div>
+
+  <div>
+    <ion-segment [(ngModel)]="profile_segment">
+      <ion-segment-button value="grid">
+        <ion-icon name="apps"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="list">
+        <ion-icon name="list"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="tagged">
+        <ion-icon name="photos"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="saved">
+        <ion-icon name="bookmark"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+
+  <div [ngSwitch]="profile_segment">
+    <ion-list *ngSwitchCase="'grid'">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4 class="grid_img" *ngFor="let i of images"
+          (press)="pressPhoto(i)">
+          <img [src]="i.post_img">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+
+
+    <ion-list *ngSwitchCase="'list'">
+      <ion-card no-padding padding-bottom no-margin class="card">
+        <ion-row>
+          <ion-col col-10>
+            <ion-item class="item-card-user">
+              <ion-avatar item-left>
+                <img src="http://ionicframework.com/dist/preview-app/www/assets/img/sarah-avatar.png.jpeg">
+              </ion-avatar>
+              <h2 style="font-weight: bold;">lorenzogarcia</h2>
+            </ion-item>
+          </ion-col>
+  
+          <ion-col col-2 class="col-more-button">
+            <button no-margin no-padding clear color="black" ion-button icon-only 
+            style="float: right; top: 15px;" (click)="share()">
+            <ion-icon name="share"></ion-icon>
+          </button>
+          </ion-col>
+        </ion-row>
+  
+        <img src="http://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png" (tap)="tapPhotoLike($event)">
+  
+        <ion-card-content>
+          <p class="like-content">
+            <ion-icon name="heart"></ion-icon>
+            250 likes
+          </p>
+            <p>
+              <b>lorenzogarcia</b> Essa é a descrição dessa foto!!!!!!!!!!
+            </p>
+  
+            <ion-note style="font-size: 12px;">
+              11h atrás
+            </ion-note>
+        </ion-card-content>
+  
+      </ion-card>
+    </ion-list>
+  </div>
+</ion-content>

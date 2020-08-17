@@ -1,14 +1,89 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar color="white">
+    <ion-buttons start left (click)="openCamera()">
+      <button color="black" ion-button icon-only>
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title style="border: 1px solid #ccc" (click)="scrollToTop()">InstaClone</ion-title>
+  
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+
+    <ion-card no-padding padding-bottom no-margin class="card">
+      <ion-row>
+        <ion-col col-10>
+          <ion-item class="item-card-user">
+            <ion-avatar item-left>
+              <img src="http://ionicframework.com/dist/preview-app/www/assets/img/sarah-avatar.png.jpeg">
+            </ion-avatar>
+            <h2 style="font-weight: bold;">lorenzogarcia</h2>
+          </ion-item>
+        </ion-col>
+
+        <ion-col col-2 class="col-more-button">
+          <button no-margin no-padding clear color="black" ion-button icon-only 
+          style="float: right; top: 15px;" (click)="share()">
+          <ion-icon name="share"></ion-icon>
+        </button>
+        </ion-col>
+      </ion-row>
+
+      <img src="http://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png" (tap)="tapPhotoLike($event)">
+
+      <ion-card-content>
+        <p class="like-content">
+          <ion-icon name="heart"></ion-icon>
+          250 likes
+        </p>
+          <p>
+            <b>lorenzogarcia</b> Essa é a descrição dessa foto!!!!!!!!!!
+          </p>
+
+          <ion-note style="font-size: 12px;">
+            11h atrás
+          </ion-note>
+      </ion-card-content>
+
+    </ion-card>
+
+    <ion-card no-padding padding-bottom no-margin class="card">
+      <ion-row>
+        <ion-col col-10>
+          <ion-item class="item-card-user">
+            <ion-avatar item-left>
+              <img src="http://ionicframework.com/dist/preview-app/www/assets/img/sarah-avatar.png.jpeg">
+            </ion-avatar>
+            <h2 style="font-weight: bold;">lorenzogarcia</h2>
+          </ion-item>
+        </ion-col>
+
+        <ion-col col-2 class="col-more-button">
+          <button no-margin no-padding clear color="black" ion-button icon-only 
+          style="float: right; top: 15px;" (click)="share()">
+          <ion-icon name="share"></ion-icon>
+        </button>
+        </ion-col>
+      </ion-row>
+
+      <img src="http://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png" (tap)="tapPhotoLike($event)">
+
+      <ion-card-content>
+        <p class="like-content">
+          <ion-icon name="heart"></ion-icon>
+          250 likes
+        </p>
+          <p>
+            <b>lorenzogarcia</b> Essa é a descrição dessa foto!!!!!!!!!!
+          </p>
+
+          <ion-note style="font-size: 12px;">
+            11h atrás
+          </ion-note>
+      </ion-card-content>
+
+    </ion-card>
 </ion-content>
