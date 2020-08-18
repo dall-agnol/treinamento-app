@@ -11,11 +11,23 @@ export class SessionProvider {
 
 
   setSession(user) {
-    return this.storage.set('user', user);
+    let usuario = {
+      id: user['_id'],
+      email: user.email,
+      name: user.name,
+      username: user.username,
+      password: user.password,
+      description: user.description ? user.description : ''
+    }
+    return this.storage.set('user', usuario);
   }
 
   getSession() {
     return this.storage.get('user');
+  }
+
+  clearSession() {
+    return this.storage.remove('user');
   }
 
 }

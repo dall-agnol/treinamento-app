@@ -1,11 +1,11 @@
 <ion-header>
 
   <ion-navbar color="white">
-    <ion-title>lorenzogarcia</ion-title>
+    <ion-title>{{user?.username}}</ion-title>
 
     <ion-buttons end>
-      <button ion-button icon-only (click)="goToOptions()">
-        <ion-icon name="more"></ion-icon>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -43,8 +43,8 @@
   </ion-row>
 
   <div padding>
-    <p no-margin no-padding><b>Lorenzo DallAgnol</b></p>
-    <p no-margin no-padding class="info">EU GOSTO DE COPIAR E COLAR O INSTAGRAM</p>
+    <p no-margin no-padding><b>{{user?.name}}</b></p>
+    <p no-margin no-padding class="info">{{user?.description}}</p>
   </div>
 
   <div>

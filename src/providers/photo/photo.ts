@@ -18,21 +18,21 @@ export class PhotoProvider {
       description: data.description
     }
 
-    return this.http.post(this.url + '/foto', params);
+    return this.http.post(this.url + '/post', params);
 
   }
 
   getPhotos() {
-    return this.http.get(this.url + '/foto')
+    return this.http.get(this.url + '/posts')
   }
 
   getPhotosById(id) {
-    return this.http.get(`${this.url}/foto/${id}`)
+    return this.http.get(`${this.url}/postsById/${id}`)
   }
 
 
   getPhoto(id) {
-    return this.http.get(`${this.url}/foto/${id}`)
+    return this.http.get(`${this.url}/posts/${id}`)
   }
 
 

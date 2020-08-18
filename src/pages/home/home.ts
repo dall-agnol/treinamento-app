@@ -9,7 +9,9 @@ import { NavController, ModalController, Content } from 'ionic-angular';
 export class HomePage {
   @ViewChild(Content) content: Content;
 
+  images: Array<any> = new Array();
 
+  
   constructor(
     public navCtrl: NavController,
     public modalCtrl: ModalController) {

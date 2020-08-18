@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SessionProvider } from '../session/session';
 
 
 @Injectable()
@@ -7,27 +8,23 @@ export class LoginProvider {
 
   url: string = 'http://localhost:3000'
 
-  constructor(public http: HttpClient) {
+  constructor(
+    public http: HttpClient,
+    private sessionHelper: SessionProvider) {
 
+  }
+
+  register(params) {
+    return this.http.post(this.url + '/register', params);
   }
 
 
   login(params?) {
-    return Promise.resolve(
-      setTimeout(() => {
-        return {
-          nome: 'Lorenzo Garcia',
-          user: '@lorenzo',
-          email: 'lorenzogarcia@hotmail.com',
-          password: '123'
-        }
-    }, 1000))
-    //return this.http.post(this.url + '/login', params)
+    return this.http.post(this.url + '/login', params)
   }
 
-  logout(params) {
-    return Promise.resolve(true);
-    //return this.http.post(this.url + '/logout', params);
+  logout() {
+    return this.sessionHelper.clearSession();
   }
 
 }

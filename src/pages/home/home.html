@@ -13,30 +13,30 @@
 
 <ion-content>
 
-    <ion-card no-padding padding-bottom no-margin class="card">
+    <ion-card *ngFor="let img of images" no-padding padding-bottom no-margin class="card">
       <ion-row>
         <ion-col col-10>
           <ion-item class="item-card-user">
             <ion-avatar item-left>
-              <img src="http://ionicframework.com/dist/preview-app/www/assets/img/sarah-avatar.png.jpeg">
+              <img [src]="img.user_image">
             </ion-avatar>
-            <h2 style="font-weight: bold;">lorenzogarcia</h2>
+            <h2 style="font-weight: bold;">{{img.username}}</h2>
           </ion-item>
         </ion-col>
 
         <ion-col col-2 class="col-more-button">
           <button no-margin no-padding clear color="black" ion-button icon-only 
-          style="float: right; top: 15px;" (click)="share()">
+          style="float: right; top: 15px;" (click)="share(img)">
           <ion-icon name="share"></ion-icon>
         </button>
         </ion-col>
       </ion-row>
 
-      <img src="http://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png" (tap)="tapPhotoLike($event)">
+      <img [src]="img.image">
 
       <ion-card-content>
           <p>
-            <b>lorenzogarcia</b> Essa é a descrição dessa foto!!!!!!!!!!
+            <b>{{img.username}}</b> {{img.description}}
           </p>
 
           <ion-note style="font-size: 12px;">
@@ -46,40 +46,5 @@
 
     </ion-card>
 
-    <ion-card no-padding padding-bottom no-margin class="card">
-      <ion-row>
-        <ion-col col-10>
-          <ion-item class="item-card-user">
-            <ion-avatar item-left>
-              <img src="http://ionicframework.com/dist/preview-app/www/assets/img/sarah-avatar.png.jpeg">
-            </ion-avatar>
-            <h2 style="font-weight: bold;">lorenzogarcia</h2>
-          </ion-item>
-        </ion-col>
-
-        <ion-col col-2 class="col-more-button">
-          <button no-margin no-padding clear color="black" ion-button icon-only 
-          style="float: right; top: 15px;" (click)="share()">
-          <ion-icon name="share"></ion-icon>
-        </button>
-        </ion-col>
-      </ion-row>
-
-      <img src="http://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png" (tap)="tapPhotoLike($event)">
-
-      <ion-card-content>
-        <p class="like-content">
-          <ion-icon name="heart"></ion-icon>
-          250 likes
-        </p>
-          <p>
-            <b>lorenzogarcia</b> Essa é a descrição dessa foto!!!!!!!!!!
-          </p>
-
-          <ion-note style="font-size: 12px;">
-            11h atrás
-          </ion-note>
-      </ion-card-content>
-
-    </ion-card>
+    
 </ion-content>

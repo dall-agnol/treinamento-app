@@ -43,7 +43,10 @@ export class TakePicPage {
     .catch(err => {
       let alert = this.alert.create({
         title: 'Erro',
-        message: err
+        message: err,
+        buttons: [{
+          text: 'Ok'
+        }]
       })
       alert.present()
       .then(() => this.closePage())
@@ -53,6 +56,10 @@ export class TakePicPage {
 
   closePage() {
     this.navCtrl.setRoot(HomePage)
+  }
+
+  upload() {
+    
   }
 
 }

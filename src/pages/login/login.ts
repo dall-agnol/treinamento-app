@@ -1,7 +1,7 @@
 import { LoginProvider } from './../../providers/login/login';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { SessionProvider } from '../../providers/session/session';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
@@ -18,10 +18,11 @@ export class LoginPage {
   password: string;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     public loginService: LoginProvider,
-    public sessionHelper: SessionProvider) {
+    public sessionHelper: SessionProvider,
+    private alert: AlertController) {
   }
 
   ionViewWillEnter() {
@@ -41,10 +42,23 @@ export class LoginPage {
       usuario: this.user,
       senha: this.password
     }
-    return this.loginService.login(params).then(retorno => {
-      return this.sessionHelper.setSession(retorno).then(() => {
+    return this.loginService.login(params).subscribe((retorno: any) => {
+      console.log(retorno);
+      return this.sessionHelper.setSession(retorno.data).then(() => {
         this.navCtrl.setRoot(TabsPage)
       })
+    }, err => {
+      let alert = this.alert.create({
+        title: 'Erro ao fazer login',
+        message: 'Usuário não encontrado',
+        buttons: [
+          {
+            text: 'Tentar novamente',
+            role: 'ok'
+          }
+        ]
+      });
+      alert.present();
     })
   }
 
